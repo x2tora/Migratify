@@ -19,6 +19,8 @@ exports.default = async function afterPack(context) {
       return;
     }
 
+    const appVersion = context.packager.appInfo.version || '1.0.0';
+
     execFileSync(rceditPath, [
       exePath,
       '--set-icon',
@@ -39,9 +41,9 @@ exports.default = async function afterPack(context) {
       'OriginalFilename',
       'Migratify.exe',
       '--set-file-version',
-      '1.0.0',
+      appVersion,
       '--set-product-version',
-      '1.0.0',
+      appVersion,
     ]);
 
     console.log(`  • PE 아이콘 및 메타데이터 임베딩 완료: ${exePath}`);

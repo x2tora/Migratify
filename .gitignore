@@ -94,6 +94,13 @@ legacy/
 
 # Intermediate installer build resources
 scripts/installer_win32.res
+scripts/installer_win32.rc
+scripts/_app_version.rc
+scripts/_app_version.res
+
+# Dev-only stories & local helper scripts
+*.stories.js
+*.bat
 
 # Python cache & legacy prototype
 __pycache__/
