@@ -348,7 +348,7 @@ export const PlaylistPreviewModal: React.FC<PlaylistPreviewModalProps> = ({
                     type="button"
                     disabled={track.isLocal}
                     onClick={() => handleToggleTrack(idx)}
-                    className={`w-full py-2.5 flex items-center justify-between gap-4 text-xs text-left hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all ${
+                    className={`w-full py-2.5 flex items-center justify-between gap-4 text-xs text-left hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-colors ${
                       !isSelected ? 'opacity-50' : ''
                     }`}
                   >

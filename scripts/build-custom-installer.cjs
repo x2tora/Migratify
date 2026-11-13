@@ -5,6 +5,8 @@ const { execFileSync } = require('child_process');
 // 커스텀 프레임리스 WPF 인스톨러 빌드 및 단일 실행 파일(.exe) 패키징 스크립트
 function buildCustomInstaller() {
   const rootDir = path.resolve(__dirname, '..');
+  const pkg = JSON.parse(fs.readFileSync(path.join(rootDir, 'package.json'), 'utf-8'));
+  const appVersion = pkg.version || '1.0.0';
   const distDir = path.join(rootDir, 'release-dist');
   const unpackedDir = path.join(distDir, 'win-unpacked');
   const csSource = path.join(__dirname, 'CustomInstaller.cs');
@@ -12,7 +14,7 @@ function buildCustomInstaller() {
   const starLogoPath = path.join(rootDir, 'build', 'star_logo.png');
   const stubExePath = path.join(distDir, 'InstallerStub.exe');
   const payloadZipPath = path.join(distDir, 'payload.zip');
-  const outputSetup10 = path.join(distDir, 'Migratify-Setup-1.0.0.exe');
+  const outputSetup10 = path.join(distDir, `Migratify-Setup-${appVersion}.exe`);
   const outputSetupAlias = path.join(distDir, 'Migratify-Setup.exe');
 
   // win-unpacked가 없거나 최신 dist 빌드보다 오래된 경우 자동으로 electron-builder 패키징 수행

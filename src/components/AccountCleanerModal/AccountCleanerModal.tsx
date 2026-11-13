@@ -449,7 +449,7 @@ export const AccountCleanerModal: React.FC<AccountCleanerModalProps> = ({
                 type="button"
                 disabled={isRunning}
                 onClick={() => setTargetAccount('src')}
-                className={`p-3 rounded-xl border text-left transition-all ${
+                className={`p-3 rounded-xl border text-left transition-colors ${
                   targetAccount === 'src'
                     ? 'border-rose-500 bg-rose-50/40 dark:bg-rose-950/20'
                     : 'border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/40'
@@ -477,7 +477,7 @@ export const AccountCleanerModal: React.FC<AccountCleanerModalProps> = ({
                 type="button"
                 disabled={isRunning}
                 onClick={() => setTargetAccount('dst')}
-                className={`p-3 rounded-xl border text-left transition-all ${
+                className={`p-3 rounded-xl border text-left transition-colors ${
                   targetAccount === 'dst'
                     ? 'border-rose-500 bg-rose-50/40 dark:bg-rose-950/20'
                     : 'border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/40'

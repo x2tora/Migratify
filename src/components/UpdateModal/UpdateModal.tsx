@@ -191,10 +191,10 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
             <div className="space-y-3.5">
               <div className="flex items-center justify-between rounded-xl border border-spotify/30 bg-spotify-soft/40 px-4 py-3">
                 <div>
-                  <span className="text-[11px] font-semibold text-spotify uppercase tracking-wide">
+                  <span className="text-xs font-semibold text-spotify">
                     새 업데이트 사용 가능
                   </span>
-                  <div className="flex items-center gap-2 mt-0.5">
+                  <div className="flex items-center gap-2 mt-0.5 tabular-nums">
                     <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
                       v{updateInfo.currentVersion}
                     </span>
@@ -240,7 +240,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                   </div>
                   <div className="w-full h-2 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-spotify transition-all duration-150"
+                      className="h-full rounded-full bg-spotify transition-[width] duration-150"
                       style={{ width: `${progress?.percent ?? 0}%` }}
                     />
                   </div>

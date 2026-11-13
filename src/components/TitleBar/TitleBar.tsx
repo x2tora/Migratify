@@ -35,7 +35,7 @@ export const TitleBar: React.FC<TitleBarProps> = ({
   onOpenStepTour,
   onToggleHelpDrawer,
   onOpenCleanerModal,
-  appVersion = '1.0.0',
+  appVersion = '1.1.0',
   hasAvailableUpdate = false,
   onOpenUpdateModal,
 }) => {

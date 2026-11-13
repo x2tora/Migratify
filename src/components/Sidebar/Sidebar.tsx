@@ -196,7 +196,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   ref={(el) => {
                     activeIconRefs.current[index] = el;
                   }}
-                  className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 ${
+                  className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200 ${
                     isActive
                       ? 'bg-spotify text-spotify-fg shadow-xs'
                       : isCompleted

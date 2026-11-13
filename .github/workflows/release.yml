@@ -1,0 +1,72 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript type check
+        run: |
+          npx tsc --noEmit
+          npx tsc -p tsconfig.electron.json --noEmit
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Build application & custom installer
+        run: npm run dist
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Migratify-Windows-Installer
+          path: release-dist/Migratify-Setup-*.exe
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $setupExe = Get-ChildItem -Path "release-dist" -Filter "Migratify-Setup-*.exe" | Select-Object -First 1 -ExpandProperty FullName
+          if (-not $setupExe) {
+            throw "Installer executable not found in release-dist"
+          }
+          $exists = $true
+          try {
+            gh release view $tag | Out-Null
+          } catch {
+            $exists = $false
+          }
+          if ($exists) {
+            gh release upload $tag $setupExe --clobber
+          } else {
+            gh release create $tag $setupExe --title "Migratify $tag" --generate-notes
+          }

@@ -326,7 +326,7 @@ export const App: React.FC = () => {
   const toastRef = useRef<HTMLSpanElement | null>(null);
 
   // 앱 자동 업데이트 확인 및 다운로드 상태
-  const [appVersion, setAppVersion] = useState<string>('1.0.0');
+  const [appVersion, setAppVersion] = useState<string>('1.1.0');
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState<boolean>(false);
   const [isCheckingUpdate, setIsCheckingUpdate] = useState<boolean>(false);
   const [isDownloadingUpdate, setIsDownloadingUpdate] = useState<boolean>(false);
@@ -1924,16 +1924,6 @@ export const App: React.FC = () => {
 
         <div className="flex-1 flex flex-col min-w-0 min-h-0 bg-transparent">
           <main ref={mainStageRef} className="relative flex-1 flex flex-col justify-start min-w-0 min-h-0 overflow-y-auto overflow-x-hidden p-6">
-          {/* 정적인 앰비언트 백그라운드 조명 (붕 붕 떠다니는 애니메이션 제거) */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none fixed top-16 right-12 w-72 h-72 rounded-full bg-spotify/10 blur-3xl z-0"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none fixed bottom-10 left-72 w-64 h-64 rounded-full bg-spotify/8 blur-3xl z-0"
-          />
-
           {/* ========================================================== */}
           {/* STEP 1: API 자격 증명 설정 */}
           {/* ========================================================== */}
@@ -1945,7 +1935,7 @@ export const App: React.FC = () => {
             >
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-4 shrink-0">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100">
+                  <h1 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-100">
                     Spotify API 자격 증명 설정
                   </h1>
                   <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
@@ -2046,7 +2036,7 @@ export const App: React.FC = () => {
                       value={clientId}
                       onChange={(e) => setClientId(e.target.value)}
                       placeholder="32자리 Client ID 입력"
-                      className="w-full h-10 px-3.5 rounded-lg text-sm font-mono bg-zinc-50/70 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-950 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-spotify/40 focus:border-spotify transition-all select-all"
+                      className="w-full h-10 px-3.5 rounded-lg text-sm font-mono bg-zinc-50/70 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-950 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-spotify/40 focus:border-spotify transition-colors select-all"
                     />
                   </div>
 
@@ -2065,7 +2055,7 @@ export const App: React.FC = () => {
                         value={clientSecret}
                         onChange={(e) => setClientSecret(e.target.value)}
                         placeholder="32자리 Client Secret 입력"
-                        className="w-full h-10 pl-3.5 pr-10 rounded-lg text-sm font-mono bg-zinc-50/70 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-950 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-spotify/40 focus:border-spotify transition-all select-all"
+                        className="w-full h-10 pl-3.5 pr-10 rounded-lg text-sm font-mono bg-zinc-50/70 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-950 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-spotify/40 focus:border-spotify transition-colors select-all"
                       />
                       <Tooltip
                         content={showSecret ? '비밀번호 숨기기' : '비밀번호 표시'}
@@ -2164,7 +2154,7 @@ export const App: React.FC = () => {
             >
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-4 shrink-0">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100">
+                  <h1 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-100">
                     작업 모드 및 계정 연결
                   </h1>
                   <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
@@ -2220,7 +2210,7 @@ export const App: React.FC = () => {
                       key={opt.id}
                       type="button"
                       onClick={() => handleSelectWorkflowMode(opt.id)}
-                      className={`p-3.5 rounded-xl border text-left transition-all relative flex flex-col justify-between gap-2 shadow-2xs ${
+                      className={`p-3.5 rounded-xl border text-left transition-colors relative flex flex-col justify-between gap-2 shadow-2xs ${
                         isSelected
                           ? 'bg-spotify/10 border-spotify dark:bg-spotify/15 text-zinc-950 dark:text-zinc-100 ring-1 ring-spotify'
                           : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700'
@@ -2406,7 +2396,7 @@ export const App: React.FC = () => {
                                 key={b.filename}
                                 type="button"
                                 onClick={() => handleSelectAppBackup(b)}
-                                className={`w-full p-3 rounded-xl border text-left transition-all space-y-1.5 ${
+                                className={`w-full p-3 rounded-xl border text-left transition-colors space-y-1.5 ${
                                   isSelected
                                     ? 'border-spotify bg-spotify/10 dark:bg-spotify/15 ring-1 ring-spotify'
                                     : 'border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 bg-zinc-50/70 dark:bg-zinc-950/70'
@@ -2860,7 +2850,7 @@ export const App: React.FC = () => {
               {/* 상단 헤더 */}
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-3 shrink-0">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100">
+                  <h1 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-100">
                     {workflowMode === 'create_backup'
                       ? '백업할 항목 선택'
                       : workflowMode === 'delete_account_data'
@@ -2974,7 +2964,7 @@ export const App: React.FC = () => {
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
                         <div
-                          className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 ${
+                          className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200 ${
                             isActiveTab
                               ? 'bg-spotify text-spotify-fg scale-105'
                               : 'bg-zinc-50 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200'
@@ -3506,7 +3496,7 @@ export const App: React.FC = () => {
                         return (
                           <div
                             key={pl.id}
-                            className={`px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-all ${
+                            className={`px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-colors ${
                               !pl.selected ? 'opacity-55' : ''
                             }`}
                           >
@@ -3672,7 +3662,7 @@ export const App: React.FC = () => {
                                     return updated;
                                   });
                                 }}
-                                className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-all text-left ${
+                                className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-colors text-left ${
                                   !isSel ? 'opacity-50' : ''
                                 }`}
                               >
@@ -3789,7 +3779,7 @@ export const App: React.FC = () => {
                                 return updated;
                               });
                             }}
-                            className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-all text-left ${
+                            className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-colors text-left ${
                               !isSel ? 'opacity-50' : ''
                             }`}
                           >
@@ -3873,7 +3863,7 @@ export const App: React.FC = () => {
                                 return updated;
                               });
                             }}
-                            className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-all text-left ${
+                            className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-colors text-left ${
                               !isSel ? 'opacity-50' : ''
                             }`}
                           >
@@ -3949,7 +3939,7 @@ export const App: React.FC = () => {
                                 return updated;
                               });
                             }}
-                            className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-all text-left ${
+                            className={`w-full px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-colors text-left ${
                               !isSel ? 'opacity-50' : ''
                             }`}
                           >
@@ -4008,7 +3998,7 @@ export const App: React.FC = () => {
             >
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-3 shrink-0">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100">
+                  <h1 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-100">
                     {workflowMode === 'create_backup'
                       ? '백업 파일(JSON) 생성'
                       : workflowMode === 'delete_account_data'
@@ -4214,7 +4204,7 @@ export const App: React.FC = () => {
                       taskReports.map((report) => (
                         <div
                           key={report.id}
-                          className={`px-4 py-2.5 flex items-center justify-between gap-3 text-xs transition-all ${
+                          className={`px-4 py-2.5 flex items-center justify-between gap-3 text-xs transition-colors ${
                             report.status === 'running'
                               ? 'bg-spotify-soft'
                               : 'hover:bg-zinc-50 dark:hover:bg-zinc-800/30'

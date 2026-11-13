@@ -260,8 +260,8 @@ export const MigrationPipeline: React.FC<MigrationPipelineProps> = ({
                 : '가져올 계정'}
             </span>
             {isMigrating ? (
-              <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-spotify-soft text-spotify border border-spotify/30 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-spotify animate-ping" />
+              <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-spotify-soft text-spotify border border-spotify/30 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-spotify" />
                 <span>
                   {workflowMode === 'create_backup'
                     ? '백업 중'
@@ -332,10 +332,10 @@ export const MigrationPipeline: React.FC<MigrationPipelineProps> = ({
               aria-hidden="true"
               className="absolute inset-0 flex items-center pointer-events-none"
             >
-              <span className="stream-packet absolute w-2 h-2 rounded-full bg-spotify shadow-[0_0_8px_#c6a0f6] opacity-0" />
-              <span className="stream-packet absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#c6a0f6] opacity-0" />
-              <span className="stream-packet absolute w-2 h-2 rounded-full bg-spotify shadow-[0_0_8px_#c6a0f6] opacity-0" />
-              <span className="stream-packet absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#c6a0f6] opacity-0" />
+              <span className="stream-packet absolute w-2 h-2 rounded-full bg-spotify opacity-0" />
+              <span className="stream-packet absolute w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-0" />
+              <span className="stream-packet absolute w-2 h-2 rounded-full bg-spotify opacity-0" />
+              <span className="stream-packet absolute w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-0" />
             </div>
 
             {/* 중앙 진행 화살표 */}
@@ -514,10 +514,10 @@ export const MigrationPipeline: React.FC<MigrationPipelineProps> = ({
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-packet-flow pointer-events-none" />
             )}
 
-            {/* 선두 글로우 헤드 스파크 */}
+            {/* 선두 진행 헤드 마커 */}
             <div
               ref={progressGlowRef}
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white shadow-[0_0_12px_#c6a0f6] opacity-0 pointer-events-none"
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 pointer-events-none"
             />
           </div>
         </div>

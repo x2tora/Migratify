@@ -264,7 +264,7 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
                   type="button"
                   aria-label={`슬라이드 ${idx + 1}`}
                   onClick={() => setSlideIndex(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-250 cursor-pointer ${
+                  className={`h-1.5 rounded-full transition-colors duration-250 cursor-pointer ${
                     idx === slideIndex
                       ? 'w-5 bg-spotify'
                       : 'w-1.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400'
@@ -278,7 +278,7 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
               type="button"
               disabled={slideIndex === 0}
               onClick={() => setSlideIndex((prev) => Math.max(0, prev - 1))}
-              className={`interactive-btn h-8 px-3 rounded-lg border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-200/60 dark:hover:bg-zinc-800 flex items-center gap-1 cursor-pointer transition-all ${
+              className={`interactive-btn h-8 px-3 rounded-lg border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-200/60 dark:hover:bg-zinc-800 flex items-center gap-1 cursor-pointer transition-colors ${
                 slideIndex === 0 ? 'invisible pointer-events-none' : ''
               }`}
             >
