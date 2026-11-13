@@ -1,0 +1,32 @@
+#pragma code_page(65001)
+
+1 ICON "E:/Projects/SpotifyAccountMigrator/build/icon.ico"
+
+1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEFLAGSMASK 0x3fL
+FILEFLAGS 0x0L
+FILEOS 0x40004L
+FILETYPE 0x1L
+FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041204b0"
+        BEGIN
+            VALUE "CompanyName", "xitora.cc"
+            VALUE "FileDescription", "Migratify Setup"
+            VALUE "FileVersion", "1.0.0"
+            VALUE "InternalName", "Migratify-Setup.exe"
+            VALUE "LegalCopyright", "Copyright © xitora.cc"
+            VALUE "OriginalFilename", "Migratify-Setup-1.0.0.exe"
+            VALUE "ProductName", "Migratify"
+            VALUE "ProductVersion", "1.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0412, 1200
+    END
+END
